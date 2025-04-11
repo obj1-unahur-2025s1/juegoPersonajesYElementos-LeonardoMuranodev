@@ -7,4 +7,44 @@ describe "pruebas iniciales" {
     test "ultimo elemento de mario" {
         assert.equals(tipa, mario.ultimoElemento())
     }
+
+    test "la cantidad de felchas de la ballesta debe ser 10"{
+        assert.equals(10, ballesta.flechas())
+    }
+
+    test "Si disparo dos flechas debe tener 8 flechas la ballesta" {
+        ballesta.dispararBallesta()
+        ballesta.dispararBallesta()
+        assert.equals(8, ballesta.flechas())
+    }
+
+    test "si lanzo la jabalina, esta debe estar descargada"{
+        jabalina.lanzarJabalina()
+        assert.notThat(jabalina.estaCargada())
+    }
+}
+
+describe "pruebas avanzadas"{
+    test "Luisa usa a floji y ataca el castillo, por lo que usa su ballesta, esta debe tener 9 balas, y la defensa del castillo bajar a 146"{
+        luisa.aparece(castillo)
+        assert.equals(9, ballesta.flechas())
+        assert.equals(146, castillo.defensa())
+    }
+
+    test "Luisa usa a Mario y interactua con tipa, por lo que, la tipa mide 9 y el valor recolectado de mario pasa a 26"{
+        luisa.cambiarPersonajeActivo(mario)
+        luisa.aparece(tipa)
+        assert.equals(9, tipa.altura())
+        assert.equals(16, mario.valorRecolectado())
+    }
+
+    test "Devuelta Luisa usa a Mario y interactua con castillo, por lo que, la defensa del castillo es 170 y el valor recolectado de mario de 16 a 50, el ultimo elemento de mario debe ser el castillo"{
+        luisa.cambiarPersonajeActivo(mario)
+        luisa.aparece(tipa)
+        luisa.aparece(castillo)
+        assert.equals(9, tipa.altura())
+        assert.equals(170, castillo.defensa())
+        assert.equals(50, mario.valorRecolectado())
+        assert.equals(castillo, mario.ultimoElemento())
+    }
 }

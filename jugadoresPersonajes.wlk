@@ -93,8 +93,8 @@ object castillo {
     }
 
     method interactuarCon(personaje) {
-        personaje.aumentarValorRecolectado(self.defensa()/5) 
         defensa = 200.min(defensa + 20)
+        personaje.aumentarValorRecolectado(self.defensa()/5)
     }
 }
 
