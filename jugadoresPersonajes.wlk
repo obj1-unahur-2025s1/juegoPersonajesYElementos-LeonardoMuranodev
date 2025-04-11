@@ -14,8 +14,14 @@ object luisa {
 object floki {
     var arma = ballesta
 
+    method arma() = arma
+
     method encontrar(elemento) {
         arma.atacar(elemento)
+    }
+
+    method cambiarArma(armaNueva) {
+        arma = armaNueva
     }
 }
 
@@ -24,10 +30,11 @@ object mario {
     var ultimoElemento = tipa
 
     method valorRecolectado() = valorRecolectado
-    method esFeliz() = self.valorRecolectado()  >= 50 || self.ultimoElemento.altura() >= 10
+    method esFeliz() = self.valorRecolectado() >= 50 || ultimoElemento.altura() >= 10
+    method ultimoElemento() =  ultimoElemento
     
     method encontrar(elemento) {
-        elemento.interactuarCon(mario)
+        elemento.interactuarCon(self)
         ultimoElemento = elemento
     }
 
@@ -87,7 +94,7 @@ object castillo {
 
     method interactuarCon(personaje) {
         personaje.aumentarValorRecolectado(self.defensa()/5) 
-        defensa = min(200, defensa + 20)
+        defensa = 200.min(defensa + 20)
     }
 }
 

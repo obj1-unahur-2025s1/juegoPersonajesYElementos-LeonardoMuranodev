@@ -1,0 +1,10 @@
+import jugadoresPersonajes.*
+describe "pruebas iniciales" {
+    test "arma de floki" {
+        assert.equals(ballesta, floki.arma())
+    }
+
+    test "ultimo elemento de mario" {
+        assert.equals(tipa, mario.ultimoElemento())
+    }
+}
